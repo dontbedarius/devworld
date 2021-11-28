@@ -1,0 +1,4 @@
+{
+   "mongoURI": "mongodb+srv://admin-Darius:RK80YPfgrG7IybXB@cluster0.mazmr.mongodb.net/devworld",  
+   "jwtSecret": "thetokenofsecrets"
+}
