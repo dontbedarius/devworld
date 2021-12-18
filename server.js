@@ -10,7 +10,7 @@ connectDB();
 //Init Middleware(body-parser)
 app.use(express.json({ extended: false }));
 
-app.get('/', (req, res) => res.send('API Running'));
+// app.get('/', (req, res) => res.send('API Running'));
 
 // All Routes
 app.use('/api/users', require('./routes/api/users'));
@@ -18,8 +18,8 @@ app.use('/api/auth', require('./routes/api/auth'));
 app.use('/api/profile', require('./routes/api/profile'));
 app.use('/api/posts', require('./routes/api/posts'));
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, function () {
-  console.log('Server is active on port 3000');
+  console.log('Server is active on port 5000');
 });
