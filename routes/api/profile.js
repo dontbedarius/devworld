@@ -7,6 +7,7 @@ const auth = require('../../middleware/auth');
 const { check, validationResult } = require('express-validator');
 const Profile = require('../../models/Profile');
 const User = require('../../models/User');
+const Post = require('../../models/Post');
 const { compareSync } = require('bcryptjs');
 
 //@route GET api/profile, @desc Create or update user profile, @access Private
@@ -137,6 +138,8 @@ router.get('/user/:user_id', async (req, res) => {
 //@route DELETE api/profile, @desc Delete profile user & posts, @access Private
 router.delete('/', auth, async (req, res) => {
   try {
+    //Remove User Posts
+    await Post.deleteMany({ user: req.user.id });
     //Remove Profile
     await Profile.findOneAndRemove({ user: req.user.id });
     //Remove User
