@@ -45,6 +45,7 @@ const EditProfile = ({
       linkedin: loading || !profile.social ? '' : profile.social.linkedin,
       facebook: loading || !profile.social ? '' : profile.social.facebook,
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loading]);
 
   const {
