@@ -71,10 +71,22 @@ const EditProfile = ({
     createProfile(formData, history, true);
   };
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
+
   return (
     <Fragment>
       <section className='container'>
-        <h1 className='large text-primary'>Create Your Profile</h1>
+        <div className='text-center'>
+          <Link className='btn btn-light my-1' to='/dashboard'>
+            Go Back
+          </Link>
+        </div>
+        <h1 className='large text-primary text-center'>Edit Your Profile</h1>
         <p className='lead'>
           <i className='fas fa-user'></i> Let's get some information to make
           your profile stand out
@@ -167,7 +179,6 @@ const EditProfile = ({
             ></textarea>
             <small className='form-text'>Tell us a little about yourself</small>
           </div>
-
           <div className='my-2'>
             <button
               onClick={() => toggleSocialInputs(!displaySocialInputs)}
@@ -178,7 +189,6 @@ const EditProfile = ({
             </button>
             <span>Optional</span>
           </div>
-
           {displaySocialInputs && (
             <Fragment>
               <div className='form-group social-input'>
@@ -237,11 +247,13 @@ const EditProfile = ({
               </div>
             </Fragment>
           )}
-
-          <input type='submit' className='btn btn-primary my-1' />
-          <Link className='btn btn-light my-1' to='/dashboard'>
-            Go Back
-          </Link>
+          <div className='text-center'>
+            <input
+              type='submit'
+              className='btn btn-primary my-1'
+              onClick={scrollToTop}
+            />
+          </div>
         </form>
       </section>
     </Fragment>

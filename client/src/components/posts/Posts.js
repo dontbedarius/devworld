@@ -15,15 +15,17 @@ const Posts = ({ getPosts, post: { posts, loading } }) => {
     <Spinner />
   ) : (
     <Fragment>
-      <h1 className='large text-primary'>Posts</h1>
-      <p className='lead'>
-        <i className='fas fa-user'>Welcome to the DevWorld</i>
-      </p>
-      <PostForm />
-      <div className='posts'>
-        {posts.map(post => (
-          <PostItem key={post._id} post={post} />
-        ))}
+      <div className='header-space'>
+        <h1 className='large text-primary text-center'>Posts</h1>
+        <p className='lead text-center'>
+          <i className='fas fa-user'>Welcome to the DevWorld</i>
+        </p>
+        <PostForm />
+        <div className='posts'>
+          {posts.map(post => (
+            <PostItem key={post._id} post={post} />
+          ))}
+        </div>
       </div>
     </Fragment>
   );

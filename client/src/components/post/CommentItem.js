@@ -11,15 +11,15 @@ const CommentItem = ({
   auth,
   deleteComment,
 }) => (
-  <div className='post bg-white p-1 my-1'>
-    <div>
+  <div className='post-c bg-white p-1 my-1'>
+    <div className='post-hd'>
       <Link to={`/profile/${user}`}>
-        <img className='round-img' src={avatar} alt='' />
+        <img className='round-img round-sm' src={avatar} alt='' />
         <h4>{name}</h4>
       </Link>
     </div>
     <div>
-      <p className='my-1'>{text}</p>
+      <p className='my-1 comment-text'>{text}</p>
       <p className='post-date'>
         Posted on <Moment format='YYYY/MM/DD'>{date}</Moment>
       </p>

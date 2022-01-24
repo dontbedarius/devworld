@@ -12,7 +12,7 @@ const PostForm = ({ addPost }) => {
         <h3>Say Something...</h3>
       </div>
       <form
-        class='form my-1'
+        class='form my-1 text-center'
         onSubmit={e => {
           e.preventDefault();
           addPost({ text });
@@ -23,6 +23,7 @@ const PostForm = ({ addPost }) => {
           name='text'
           cols='30'
           rows='5'
+          className='text-center'
           placeholder='Create a post'
           value={text}
           onChange={e => setText(e.target.value)}

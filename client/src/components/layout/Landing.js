@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import DevWorld from '../../img/DevWorld.png';
 
 export const Landing = ({ isAuthenticated }) => {
   if (isAuthenticated) {
@@ -12,7 +13,8 @@ export const Landing = ({ isAuthenticated }) => {
     <section className='landing'>
       <div className='dark-overlay'>
         <div className='landing-inner'>
-          <h1 className='x-large'>Developer Connector</h1>
+          <img src={DevWorld} alt='' className='landing-img' />
+          <h1 className='x-large'>Welcome To DevWorld</h1>
           <p className='lead'>
             Create a developer profile/portfolio, share posts and get help from
             other developers
@@ -25,6 +27,9 @@ export const Landing = ({ isAuthenticated }) => {
               Login
             </Link>
           </div>
+        </div>
+        <div className='landing-footer'>
+          <h4>© DontBeDarius. All rights reserved</h4>
         </div>
       </div>
     </section>
@@ -40,22 +45,3 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps)(Landing);
-
-// const loginText = document.querySelector('.title-text .login');
-// const loginForm = document.querySelector('form.login');
-// const loginBtn = document.querySelector('label.login');
-// const registerBtn = document.querySelector('label.register');
-// const registerLink = document.querySelector('form .register-link a');
-
-// registerBtn.onclick = () => {
-//   loginForm.style.marginLeft = '-50%';
-//   loginText.style.marginLeft = '-50%';
-// };
-// loginBtn.onclick = () => {
-//   loginForm.style.marginLeft = '0%';
-//   loginText.style.marginLeft = '0%';
-// };
-// registerLink.onclick = () => {
-//   registerBtn.click();
-//   return false;
-// };

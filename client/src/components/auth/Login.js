@@ -28,8 +28,8 @@ const Login = ({ login, isAuthenticated }) => {
   return (
     <Fragment>
       <section className='container'>
-        <h1 className='large text-primary'>Sign In</h1>
-        <p className='lead'>
+        <h1 className='large text-primary text-center'>Sign In</h1>
+        <p className='lead text-center'>
           <i className='fas fa-user' /> Sign Into Your Account
         </p>
         <form id='login' className='login' onSubmit={e => loginSubmit(e)}>
@@ -54,7 +54,9 @@ const Login = ({ login, isAuthenticated }) => {
               required
             />
           </div>
-          <input type='submit' className='btn btn-primary' value='Login' />
+          <div className='layout-btn'>
+            <input type='submit' className='btn btn-primary' value='Login' />
+          </div>
         </form>
       </section>
     </Fragment>

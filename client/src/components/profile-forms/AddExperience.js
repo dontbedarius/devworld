@@ -15,6 +15,13 @@ const AddExperience = ({ addExperience, history }) => {
     description: '',
   });
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
+
   const [toDateDisabled, toggleDisabled] = useState(false);
 
   const { company, title, location, from, to, current, description } = formData;
@@ -25,6 +32,11 @@ const AddExperience = ({ addExperience, history }) => {
   return (
     <Fragment>
       <section class='container'>
+        <div className='text-center'>
+          <Link class='btn btn-light my-1' to='/dashboard'>
+            Go Back
+          </Link>
+        </div>
         <h1 class='large text-primary'>Add An Experience</h1>
         <p class='lead'>
           <i class='fas fa-code-branch'></i> Add any developer/programming
@@ -111,10 +123,13 @@ const AddExperience = ({ addExperience, history }) => {
               onChange={e => onChange(e)}
             ></textarea>
           </div>
-          <input type='submit' class='btn btn-primary my-1' />
-          <Link class='btn btn-light my-1' to='/dashboard'>
-            Go Back
-          </Link>
+          <div className='text-center'>
+            <input
+              type='submit'
+              class='btn btn-primary my-1'
+              onClick={scrollToTop}
+            />
+          </div>
         </form>
       </section>
     </Fragment>

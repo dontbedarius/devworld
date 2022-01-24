@@ -15,6 +15,13 @@ const AddEducation = ({ addEducation, history }) => {
     description: '',
   });
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
+
   const [toDateDisabled, toggleDisabled] = useState(false);
 
   const { school, degree, fieldofstudy, from, to, current, description } =
@@ -26,7 +33,12 @@ const AddEducation = ({ addEducation, history }) => {
   return (
     <Fragment>
       <section class='container'>
-        <h1 class='large text-primary'>Add Your Education</h1>
+        <div className='text-center'>
+          <Link class='btn btn-light my-1' to='/dashboard'>
+            Go Back
+          </Link>
+        </div>
+        <h1 class='large text-primary text-center'>Add Your Education</h1>
         <p class='lead'>
           <i class='fas fa-code-branch'></i> Add any school and/or bootcamps
           that you have attended.
@@ -112,10 +124,13 @@ const AddEducation = ({ addEducation, history }) => {
               onChange={e => onChange(e)}
             ></textarea>
           </div>
-          <input type='submit' class='btn btn-primary my-1' />
-          <Link class='btn btn-light my-1' to='/dashboard'>
-            Go Back
-          </Link>
+          <div className='text-center'>
+            <input
+              type='submit'
+              class='btn btn-primary my-1'
+              onClick={scrollToTop}
+            />
+          </div>
         </form>
       </section>
     </Fragment>

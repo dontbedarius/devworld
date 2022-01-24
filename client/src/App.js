@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import Landing from './components/layout/Landing';
@@ -15,6 +15,11 @@ import Profile from './components/profile/Profile';
 import Posts from './components/posts/Posts';
 import Post from './components/post/Post';
 import PrivateRoute from './components/routing/PrivateRoute';
+import { ThemeProvider } from 'styled-components';
+import { lightTheme, darkTheme } from './components/theme/Theme';
+import { GlobalStyles } from './components/theme/GlobalStyles';
+import { useDarkMode } from './components/theme/UseDarkMode';
+import ScrollToTop from './components/theme/ScrollToTop';
 //====Redux====/
 import { Provider } from 'react-redux';
 import store from './store';
@@ -27,6 +32,14 @@ if (localStorage.token) {
 }
 
 const App = () => {
+  const [theme, setTheme] = useDarkMode();
+  const themeToggler = () => {
+    theme === 'light' ? setTheme('dark') : setTheme('light');
+  };
+
+  const [lightMode, setMode] = useState(false);
+  const light = <i class='far fa-sun'> Light Mode</i>;
+  const dark = <i class='far fa-moon'> Dark Mode</i>;
   useEffect(() => {
     store.dispatch(loadUser());
   }, []);
@@ -34,42 +47,56 @@ const App = () => {
   return (
     <Provider store={store}>
       <Router>
-        <Fragment>
-          <Navbar />
-          <Route exact path='/' component={Landing} />
-          <section>
-            <Alert />
-            <Switch>
-              <Route exact path='/register' component={Register} />
-              <Route exact path='/login' component={Login} />
-              <Route exact path='/profiles' component={Profiles} />
-              <Route exact path='/profile/:id' component={Profile} />
-              <PrivateRoute exact path='/dashboard' component={Dashboard} />
-              <PrivateRoute
-                exact
-                path='/create-profile'
-                component={CreateProfile}
-              />
-              <PrivateRoute
-                exact
-                path='/edit-profile'
-                component={EditProfile}
-              />
-              <PrivateRoute
-                exact
-                path='/add-experience'
-                component={AddExperience}
-              />
-              <PrivateRoute
-                exact
-                path='/add-education'
-                component={AddEducation}
-              />
-              <PrivateRoute exact path='/posts' component={Posts} />
-              <PrivateRoute exact path='/posts/:id' component={Post} />
-            </Switch>
-          </section>
-        </Fragment>
+        <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
+          <GlobalStyles />
+          <Fragment>
+            <Navbar />
+            <button
+              className='navbar2 top-dark2'
+              onClick={() => {
+                themeToggler();
+                setMode(!lightMode);
+              }}
+            >
+              <div>{lightMode ? light : dark}</div>
+            </button>
+
+            <Route exact path='/' component={Landing} />
+            <section>
+              <Alert />
+              <Switch>
+                <Route exact path='/register' component={Register} />
+                <Route exact path='/login' component={Login} />
+                <Route exact path='/profiles' component={Profiles} />
+                <Route exact path='/profile/:id' component={Profile} />
+                <PrivateRoute exact path='/dashboard' component={Dashboard} />
+                <PrivateRoute
+                  exact
+                  path='/create-profile'
+                  component={CreateProfile}
+                />
+                <PrivateRoute
+                  exact
+                  path='/edit-profile'
+                  component={EditProfile}
+                />
+                <PrivateRoute
+                  exact
+                  path='/add-experience'
+                  component={AddExperience}
+                />
+                <PrivateRoute
+                  exact
+                  path='/add-education'
+                  component={AddEducation}
+                />
+                <PrivateRoute exact path='/posts' component={Posts} />
+                <PrivateRoute exact path='/posts/:id' component={Post} />
+              </Switch>
+            </section>
+            <ScrollToTop />
+          </Fragment>
+        </ThemeProvider>
       </Router>
     </Provider>
   );

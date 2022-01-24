@@ -5,11 +5,9 @@ import spinner from './spinner.gif';
 export default () => {
   return (
     <Fragment>
-      <img
-        src={spinner}
-        style={{ width: '100px', margin: 'auto', display: 'block' }}
-        alt='Loading...'
-      />
+      <div class='fa-3x spinner'>
+        <i class='fas fa-sync fa-spin'></i>
+      </div>
     </Fragment>
   );
 };

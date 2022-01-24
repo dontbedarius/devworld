@@ -27,9 +27,6 @@ const Profile = ({
         <Spinner />
       ) : (
         <Fragment>
-          <div>SPAC SPACE SPACE</div>
-          <div>SPAC SPACE SPACE</div>
-          <div>SPAC SPACE SPACE</div>
           <Link to='/profiles' className='btn btn-light'>
             Back to profiles
           </Link>

@@ -1,10 +1,16 @@
 /* Global Styles */
 :root {
+  --header-height: 3rem;
   --primary-color: #17a2b8;
   --dark-color: #343a40;
   --light-color: #f4f4f4;
   --danger-color: #dc3545;
   --success-color: #28a745;
+  --main-brown: #F1DAC4; 
+  --main-blue: #474973;
+  --second-brown: #A69CAC;
+  --second-blue: #161B33; 
+  --third-blue: #0D0C1D;
 }
 
 * {
@@ -49,6 +55,7 @@ img {
   padding: 0 2rem;
   margin-top: 6rem;
   margin-bottom: 3rem;
+
 }
 
 /* Text Styles*/
@@ -65,7 +72,7 @@ img {
 }
 
 .lead {
-  font-size: 1.5rem;
+  font-size: 3.5rem;
   margin-bottom: 1rem;
 }
 
@@ -124,7 +131,9 @@ img {
   margin: 0.5rem 0;
 }
 .my-1 {
-  margin: 1rem 0;
+  margin: 1rem;
+  border-radius: 30px;
+  
 }
 .my-2 {
   margin: 2rem 0;
@@ -144,6 +153,8 @@ img {
   margin-right: 0.5rem;
   transition: opacity 0.2s ease-in;
   outline: none;
+  border-radius: 30px;
+  box-shadow: 2px 4px rgba(97, 97, 97, 0.13);
 }
 
 .badge {
@@ -170,6 +181,7 @@ img {
   background: linear-gradient(to right, #23a6d5, #23d5ab);
   color: #fff;
   border-radius: 30px;
+  box-shadow: 2px 4px rgba(97, 97, 97, 0.13);
 }
 
 .btn-light,
@@ -178,6 +190,7 @@ img {
 .alert-light {
   background: var(--light-color);
   color: #333;
+  box-shadow: 2px 4px rgba(97, 97, 97, 0.13);
 }
 
 .btn-dark,
@@ -188,12 +201,28 @@ img {
   color: #fff;
 }
 
+.bg-dark2{
+  background: var(--main-blue);
+}
+
+.top-dark{
+  background: var(--dark-color);
+  width: 100%;
+}
+
+.top-dark2{
+  background: var(--main-blue);
+  width: 100%;
+  border-style: var(--main-blue);
+}
+
 .btn-danger,
 .bg-danger,
 .badge-danger,
 .alert-danger {
   background: var(--danger-color);
   color: #fff;
+  border-radius: 5rem;
 }
 
 .btn-success,
@@ -222,8 +251,24 @@ img {
   border: #ccc solid 1px;
 }
 
+.spinner{
+  font-size: 120px;
+  width: 120px;
+  display: block;
+  margin: auto;
+  left: 0;
+  right: 0;
+  padding-top: 50px;
+  position: absolute;
+}
+
 .round-img {
   border-radius: 50%;
+}
+
+.round-sm{
+  max-height: 50px;
+  max-width: 50px;
 }
 
 .line {
@@ -250,7 +295,7 @@ img {
 .form .form-text {
   display: block;
   margin-top: 0.3rem;
-  color: #888;
+  color: rgb(0, 0, 0);
 }
 
 .form input[type='text'],
@@ -296,28 +341,67 @@ button {
   color: #0077b5;
 }
 
+
+
 .table th,
 .table td {
   padding: 1rem;
   text-align: left;
+  width: 100%;
 }
 
 .table th {
   background: var(--light-color);
 }
 
+.title-column{
+  line-height: .2rem;
+  padding: 1;
+}
+
+
+/* Layout */
+
+.header{
+  width: 100%;
+  left: 0;
+  z-index: var(--z-fixed);
+}
+
+.header-space{
+   padding-top: 30px;
+}
+
+
 /* Navbar */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.7rem 2rem;
-  position: fixed;
-  z-index: 1;
-  width: 100%;
+  padding: 0.7rem 2rem 0rem 2rem;
+  position: sticky;
+  z-index: 100;
   top: 0;
-  border-bottom: solid 1px var(--primary-color);
-  opacity: 0.9;
+  /* opacity: 0.9; */
+  height: 6rem;
+  
+}
+
+.navbar2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  /* position: sticky; */
+  z-index: 100;
+  top: 3rem;
+  /* opacity: 0.8; */
+  height: 2rem;
+  color: rgb(255, 255, 255);
+}
+
+.nav__logo{
+  height: 2rem;
 }
 
 .navbar ul {
@@ -338,14 +422,66 @@ button {
   margin-right: 0.6rem;
 }
 
+.nav__list{
+  align-items: center;
+}
+
+.scroll-to-top {
+  position: fixed;
+  bottom: 0.5rem;
+  right: 0.5rem;
+  animation: fadeIn 700ms ease-in-out 1s both;
+  cursor: pointer;
+  object-fit: contain;
+  font-size: 38px;
+  color: var(--main-blue);
+  
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
+/* Dashboard */
+.dash-buttons a{
+  border-radius: 30px;
+}
+
+.dash-buttons{
+  align-items: center;
+  justify-content: center;
+  max-width: 80%;
+}
+
+.dash-buttons-container{
+  justify-content: center;
+  display: flex;
+  padding-left: 20px;
+}
+
+
+
 /* Landing Page */
 .landing {
   position: relative;
   background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
 	background-size: 400% 400%;
 	animation: gradient 15s ease infinite; 
-  height: 100vh;
+  height: 90vh;
 }
+
+.landing-footer{
+display: flex;
+justify-content: center;
+margin-top: 98px;
+}
+
 @keyframes gradient {
 	0% {
 		background-position: 0% 50%;
@@ -475,6 +611,8 @@ input[type="radio"]{
   font-size: 1.2rem;
   border: 1px solid #ccc;
   margin-top: 18px;
+  border-radius: 30px;
+  box-shadow: 2px 4px rgba(97, 97, 97, 0.13);
 }
 #register input[type='text'],
 #register input[type='email'],
@@ -488,6 +626,8 @@ input[type="radio"]{
   font-size: 1.2rem;
   border: 1px solid #ccc;
   margin-top: 18px;
+  border-radius: 30px;
+  box-shadow: 2px 4px rgba(97, 97, 97, 0.13);
 }
 
 .form-inner form .field input::placeholder{
@@ -510,14 +650,21 @@ form .field input:focus::placeholder{
   text-decoration: none;
 }
 
+.layout-btn{
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  margin-top: 35px;
+}
+
 
 .landing-inner {
   /* color: #fff; */
-  height: 100%;
+  height: 80%;
   width: 80%;
   margin: auto;
   display: flex;
-  /* flex-direction: column; */
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
@@ -532,6 +679,13 @@ form .field input:focus::placeholder{
   padding: 1rem;
   line-height: 1.8;
   margin-bottom: 1rem;
+  max-width: 968px;
+}
+
+.profiles{
+  display: grid;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Profile Page */
@@ -552,6 +706,7 @@ form .field input:focus::placeholder{
   align-items: center;
   justify-content: center;
   text-align: center;
+  max-width: 800px;
 }
 
 .profile-top img {
@@ -570,6 +725,9 @@ form .field input:focus::placeholder{
 .profile-about {
   grid-area: about;
   text-align: center;
+  max-width: 800px;
+  border-radius: 30px;
+  box-shadow: 2px 4px rgba(97, 97, 97, 0.13);
 }
 
 .profile-about .skills {
@@ -581,10 +739,14 @@ form .field input:focus::placeholder{
 
 .profile-exp {
   grid-area: exp;
+  border-radius: 30px;
+  box-shadow: 2px 4px rgba(97, 97, 97, 0.13);
 }
 
 .profile-edu {
   grid-area: edu;
+  border-radius: 30px;
+  box-shadow: 2px 4px rgba(97, 97, 97, 0.13);
 }
 
 .profile-exp h2,
@@ -611,10 +773,12 @@ form .field input:focus::placeholder{
 
 .profile-github {
   grid-area: github;
+  border-radius: 30px;
 }
 
 .profile-github .repo {
   display: flex;
+  box-shadow: 2px 4px rgba(97, 97, 97, 0.13);
 }
 
 .profile-github .repo > div:first-child {
@@ -635,9 +799,26 @@ form .field input:focus::placeholder{
 
 .post {
   display: grid;
-  grid-template-columns: 1fr 4fr;
-  grid-gap: 2rem;
-  align-items: center;
+  /* grid-template-columns: 1fr 4fr; */
+  /* grid-gap: 2rem; */
+  /* align-items: center; */
+  margin-bottom: 2rem;
+  box-shadow: 2px 4px rgba(97, 97, 97, 0.13);
+}
+
+.post-c {
+  display: grid;
+  grid-template-columns: 1.5fr 4fr;
+  grid-gap: 0.5rem;
+  /* align-items: center; */
+  margin-bottom: 2rem;
+  box-shadow: 2px 4px rgba(97, 97, 97, 0.342);
+  padding-bottom: 30px;
+  overflow: hidden;
+}
+
+.comment-text{
+ word-break: break-all; 
 }
 
 .post > div:first-child {
@@ -662,10 +843,14 @@ form .field input:focus::placeholder{
   margin-bottom: 0.5rem;
 }
 
+.post-hd{
+  max-height: 80px;
+}
+
 /* Mobile Styles */
 @media (max-width: 700px) {
   .container {
-    margin-top: 8rem;
+    margin-top: 30px;
   }
   .column{
     width: 100%;
@@ -685,7 +870,8 @@ form .field input:focus::placeholder{
   }
 
   .lead {
-    font-size: 1rem;
+    font-size: 1.15rem;
+    margin-bottom: 2.5rem;
   }
 
   /* Navbar */
@@ -742,11 +928,12 @@ form .field input:focus::placeholder{
     display: block;
     width: 100%;
     margin-bottom: 0.2rem;
+    border-radius: 30px;
   }
 
-  .post {
+  /* .post {
     grid-template-columns: 1fr;
-  }
+  } */
   .post a,
   .post button {
     padding: 0.3rem 0.4rem;

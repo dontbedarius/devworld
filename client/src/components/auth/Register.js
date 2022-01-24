@@ -36,13 +36,13 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
   return (
     <Fragment>
       <section className='container'>
-        <h1 className='large text-primary'>Sign Up</h1>
-        <p className='lead'>
+        <h1 className='large text-primary text-center'>Sign Up</h1>
+        <p className='lead text-center'>
           <i className='fas fa-user' /> Create Your Account
         </p>
         <form
           id='register'
-          className='register'
+          className='register '
           onSubmit={e => registerSubmit(e)}
         >
           <div className='form-group'>
@@ -87,7 +87,9 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
               required
             />
           </div>
-          <input type='submit' className='btn btn-primary' value='Register' />
+          <div className='layout-btn'>
+            <input type='submit' className='btn btn-primary' value='Register' />
+          </div>
         </form>
       </section>
     </Fragment>
