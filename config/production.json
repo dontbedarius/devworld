@@ -1,0 +1,6 @@
+{
+    "mongoURI": "mongodb+srv://admin-Darius:RK80YPfgrG7IybXB@cluster0.mazmr.mongodb.net/devworld",  
+    "jwtSecret": "thetokenofsecrets",
+    "githubClientId": "9265a1ba75d5ab9d0900",
+    "githubToken": "457da3388e471d4c4ba0380b790d84213999aba2"
+ }
