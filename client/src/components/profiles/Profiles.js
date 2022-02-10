@@ -18,7 +18,14 @@ const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
       ) : (
         <Fragment>
           <div className='header-space'>
-            <h1 className='large text-primary text-center'>Developers</h1>
+            <div className='text-center'>
+              <svg viewBox='0 0 550 90'>
+                <text x='145' y='60'>
+                  Developers
+                </text>
+              </svg>
+            </div>
+            {/* <h1 className='large text-primary text-center'>Developers</h1> */}
             <p className='lead text-center'>
               <i className='fab fa-connectdevelop'></i> Browse and Connect with
               other Developers

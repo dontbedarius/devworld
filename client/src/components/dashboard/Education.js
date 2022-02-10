@@ -31,17 +31,21 @@ const Education = ({ education, deleteEducation }) => {
   return (
     <Fragment>
       <h2 className='my-2 text-center'>Education Credentials</h2>
-      <table className='table'>
-        <thead>
-          <tr className='title-column'>
-            <th>School</th>
-            <th className=''>Degree</th>
-            <th className='hide-sm'>Years</th>
-            <th />
-          </tr>
-        </thead>
-        <tbody>{educations}</tbody>
-      </table>
+      <div className='posts-center'>
+        <div className='post-page-width'>
+          <table className='table'>
+            <thead>
+              <tr className='title-column text-primary'>
+                <th>School</th>
+                <th className=''>Degree</th>
+                <th className='hide-sm'>Years</th>
+                <th />
+              </tr>
+            </thead>
+            <tbody>{educations}</tbody>
+          </table>
+        </div>
+      </div>
     </Fragment>
   );
 };

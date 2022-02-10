@@ -187,7 +187,7 @@ const EditProfile = ({
             >
               Add Social Network Links
             </button>
-            <span>Optional</span>
+            <span>Optional (Please use https://)</span>
           </div>
           {displaySocialInputs && (
             <Fragment>

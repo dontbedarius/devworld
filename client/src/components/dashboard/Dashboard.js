@@ -23,7 +23,14 @@ const Dashboard = ({
     <Spinner />
   ) : (
     <Fragment>
-      <h1 className='large text-primary text-center header-space'>Dashboard</h1>
+      <div className='text-center'>
+        <svg viewBox='0 0 550 80'>
+          <text x='150' y='70'>
+            Dashboard
+          </text>
+        </svg>
+      </div>
+      {/* <h1 className='large text-primary text-center header-space'>Dashboard</h1> */}
       <p className='lead text-center'>
         <i className='fas fa-user'></i> Welcome {user && user.name}
       </p>

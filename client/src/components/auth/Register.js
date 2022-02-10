@@ -36,7 +36,13 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
   return (
     <Fragment>
       <section className='container'>
-        <h1 className='large text-primary text-center'>Sign Up</h1>
+        <div className='text-center'>
+          <svg viewBox='0 0 350 70'>
+            <text x='90' y='40'>
+              Sign Up
+            </text>
+          </svg>
+        </div>
         <p className='lead text-center'>
           <i className='fas fa-user' /> Create Your Account
         </p>

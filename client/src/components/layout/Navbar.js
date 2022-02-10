@@ -6,7 +6,7 @@ import { logout } from '../../actions/auth';
 
 export const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   const authLinks = (
-    <ul class='nav__list grid'>
+    <ul class='nav__list'>
       <li className='nav__item'>
         <NavLink
           style={isActive => ({ color: isActive ? '#17a2b8' : 'white' })}

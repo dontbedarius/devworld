@@ -27,53 +27,65 @@ const Profile = ({
         <Spinner />
       ) : (
         <Fragment>
-          <Link to='/profiles' className='btn btn-light'>
-            Back to profiles
-          </Link>
-          {auth.isAuthenticated &&
-            auth.loading === false &&
-            auth.user._id === profile.user._id && (
-              <Link to='/edit-profile' className='btn btn-dark'>
-                Edit profile
+          <div className='posts-center'>
+            <div className='header-space text-center'>
+              <Link to='/profiles' className='btn btn-light'>
+                Back to profiles
               </Link>
-            )}
-          <div class='profile-grid my-1'>
-            <ProfileTop profile={profile} />
-            <ProfileAbout profile={profile} />
-            <div className='profile-exp bg-white p-2'>
-              <h2 className='text-primary'>Experience</h2>
-              {profile.experience.length > 0 ? (
-                <Fragment>
-                  {profile.experience.map(experience => (
-                    <ProfileExperience
-                      key={experience._id}
-                      experience={experience}
-                    />
-                  ))}
-                </Fragment>
-              ) : (
-                <h4>No experience listed</h4>
-              )}
+              {auth.isAuthenticated &&
+                auth.loading === false &&
+                auth.user._id === profile.user._id && (
+                  <Link to='/edit-profile' className='btn btn-dark'>
+                    Edit profile
+                  </Link>
+                )}
             </div>
-            <div className='profile-edu bg-white p-2'>
-              <h2 className='text-primary'>Education</h2>
-              {profile.education.length > 0 ? (
-                <Fragment>
-                  {profile.education.map(education => (
-                    <ProfileEducation
-                      key={education._id}
-                      education={education}
-                    />
-                  ))}
-                </Fragment>
-              ) : (
-                <h4>No education listed</h4>
-              )}
+          </div>
+          <div className='posts-center'>
+            <div className='post-page-width'>
+              <div class='profile-grid my-1'>
+                <ProfileTop profile={profile} />
+                <ProfileAbout profile={profile} />
+                <div className='profile-exp bg-white p-2'>
+                  <h2 className='text-primary'>Experience</h2>
+                  {profile.experience.length > 0 ? (
+                    <Fragment>
+                      {profile.experience.map(experience => (
+                        <ProfileExperience
+                          key={experience._id}
+                          experience={experience}
+                        />
+                      ))}
+                    </Fragment>
+                  ) : (
+                    <h4>No experience listed</h4>
+                  )}
+                </div>
+                <div className='profile-edu bg-white p-2'>
+                  <h2 className='text-primary'>Education</h2>
+                  {profile.education.length > 0 ? (
+                    <Fragment>
+                      {profile.education.map(education => (
+                        <ProfileEducation
+                          key={education._id}
+                          education={education}
+                        />
+                      ))}
+                    </Fragment>
+                  ) : (
+                    <h4>No education listed</h4>
+                  )}
+                </div>
+              </div>
+              <div className='post-page-width'>
+                <h2 className='text-secondary my-2 text-center x-large'>
+                  Github Repos
+                </h2>
+                {profile.githubusername && (
+                  <ProfileGithub username={profile.githubusername} />
+                )}
+              </div>
             </div>
-
-            {profile.githubusername && (
-              <ProfileGithub username={profile.githubusername} />
-            )}
           </div>
         </Fragment>
       )}

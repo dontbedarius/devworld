@@ -31,17 +31,21 @@ const Experience = ({ experience, deleteExperience }) => {
   return (
     <Fragment>
       <h2 className='my-2 text-center'>Experience Credentials</h2>
-      <table className='table'>
-        <thead>
-          <tr className='title-column'>
-            <th>Company</th>
-            <th className=''>Title</th>
-            <th className='hide-sm'>Years</th>
-            <th />
-          </tr>
-        </thead>
-        <tbody>{experiences}</tbody>
-      </table>
+      <div className='posts-center'>
+        <div className='post-page-width'>
+          <table className='table'>
+            <thead>
+              <tr className='title-column text-primary'>
+                <th>Company</th>
+                <th className=''>Title</th>
+                <th className='hide-sm'>Years</th>
+                <th />
+              </tr>
+            </thead>
+            <tbody>{experiences}</tbody>
+          </table>
+        </div>
+      </div>
     </Fragment>
   );
 };

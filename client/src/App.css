@@ -71,9 +71,15 @@ img {
   margin-bottom: 1rem;
 }
 
+.large-lead {
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
 .lead {
-  font-size: 3.5rem;
-  margin-bottom: 1rem;
+  font-size: 1.15rem;
+  margin-bottom: 2.5rem;
 }
 
 .text-center {
@@ -83,6 +89,33 @@ img {
 .text-primary {
   color: var(--primary-color);
 }
+
+.text-secondary {
+  color: var(--main-blue);
+}
+
+.text-header {
+  color: #fff;
+}
+
+svg{
+  font   : bold 50px Raleway, sans-serif;
+  width  : 100%;
+  height : 110px;
+}
+
+text{
+  fill            : #17a2b8;
+  stroke          : var(--primary-color);
+  stroke-width    : .8px;
+  stroke-linejoin : round;
+  animation       : 1.5s pulsate infinite;
+}
+
+@keyframes pulsate {
+  50%{ stroke-width:3px }
+}
+
 
 .text-dark {
   color: var(--dark-color);
@@ -178,7 +211,7 @@ img {
 .bg-primary,
 .badge-primary,
 .alert-primary {
-  background: linear-gradient(to right, #23a6d5, #23d5ab);
+  background: var(--main-blue);
   color: #fff;
   border-radius: 30px;
   box-shadow: 2px 4px rgba(97, 97, 97, 0.13);
@@ -190,6 +223,7 @@ img {
 .alert-light {
   background: var(--light-color);
   color: #333;
+  border-radius: 30px;
   box-shadow: 2px 4px rgba(97, 97, 97, 0.13);
 }
 
@@ -355,8 +389,8 @@ button {
 }
 
 .title-column{
-  line-height: .2rem;
-  padding: 1;
+  line-height: .5rem;
+  font-size: 1.3rem;
 }
 
 
@@ -424,6 +458,11 @@ button {
 
 .nav__list{
   align-items: center;
+  
+}
+
+.nav-text{
+  font-family: 'Raleway', sans-serif;
 }
 
 .scroll-to-top {
@@ -473,13 +512,13 @@ button {
   background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
 	background-size: 400% 400%;
 	animation: gradient 15s ease infinite; 
-  height: 90vh;
+  height: 110vh;
 }
 
 .landing-footer{
 display: flex;
 justify-content: center;
-margin-top: 98px;
+margin-top: 30px;
 }
 
 @keyframes gradient {
@@ -659,9 +698,9 @@ form .field input:focus::placeholder{
 
 
 .landing-inner {
-  /* color: #fff; */
-  height: 80%;
-  width: 80%;
+  height: max-content;
+  max-width: 350px;
+  padding-top: 20px;
   margin: auto;
   display: flex;
   flex-direction: column;
@@ -679,7 +718,7 @@ form .field input:focus::placeholder{
   padding: 1rem;
   line-height: 1.8;
   margin-bottom: 1rem;
-  max-width: 968px;
+  max-width: max-content;
 }
 
 .profiles{
@@ -773,11 +812,17 @@ form .field input:focus::placeholder{
 
 .profile-github {
   grid-area: github;
+  max-width: 800px;
   border-radius: 30px;
+}
+
+.profile-bottom {
+  max-width: 800px;
 }
 
 .profile-github .repo {
   display: flex;
+  max-width: 800px;
   box-shadow: 2px 4px rgba(97, 97, 97, 0.13);
 }
 
@@ -795,6 +840,20 @@ form .field input:focus::placeholder{
 .post-form .post-form-header {
   background: var(--primary-color);
   padding: 0.5rem;
+}
+
+.post-form-width {
+  width: 220px;
+}
+
+.post-page-width {
+  max-width: 600px;
+}
+
+.posts-center{
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
 }
 
 .post {
@@ -848,7 +907,23 @@ form .field input:focus::placeholder{
 }
 
 /* Mobile Styles */
-@media (max-width: 700px) {
+
+/* For Small Devices */
+
+
+
+/* For Medium Devices */
+/* @media (max-width: 568px) {
+.post-form{
+}
+@media screen and (min-width: 768px) {
+.post-form{
+}
+}
+} */
+
+/* For Large Devices */
+@media (max-width: 1024px) {
   .container {
     margin-top: 30px;
   }
@@ -878,6 +953,7 @@ form .field input:focus::placeholder{
   .navbar {
     display: block;
     text-align: center;
+
   }
 
   .navbar ul {

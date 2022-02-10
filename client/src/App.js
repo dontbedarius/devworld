@@ -38,8 +38,16 @@ const App = () => {
   };
 
   const [lightMode, setMode] = useState(false);
-  const light = <i class='far fa-sun'> Light Mode</i>;
-  const dark = <i class='far fa-moon'> Dark Mode</i>;
+  const light = (
+    <div>
+      <i class='far fa-sun'></i> Light Mode
+    </div>
+  );
+  const dark = (
+    <div>
+      <i class='far fa-moon'></i> Dark Mode
+    </div>
+  );
   useEffect(() => {
     store.dispatch(loadUser());
   }, []);

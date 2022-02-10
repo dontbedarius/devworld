@@ -8,7 +8,7 @@ const CommentForm = ({ postId, addComment }) => {
 
   return (
     <div class='post-form'>
-      <div class='bg-primary p'>
+      <div class='bg-primary p text-center'>
         <h3>Leave a Comment</h3>
       </div>
       <form
@@ -24,6 +24,7 @@ const CommentForm = ({ postId, addComment }) => {
           cols='30'
           rows='5'
           placeholder='Create a comment'
+          className='text-center'
           value={text}
           onChange={e => setText(e.target.value)}
           required
