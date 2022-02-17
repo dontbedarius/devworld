@@ -124,4 +124,4 @@ This projects will help be the base of other apps we create.
  |::.. . /                 |::.. .  /    |::.. . /                           
  `------'                  `-------'     `------'                            
                                                                              
-                             All rights reserved
+                             All rights reserved.
